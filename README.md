@@ -20,3 +20,7 @@ Red black tree:[代码]()<br>
 [算法导论（六）——扩充的数据结构的应用](http://blog.csdn.net/u010385790/article/details/78442035"悬停显示")<br>  
 Dynamic orderly statistics:[代码]()<br>
 Interval tree:[代码]()<br>
+`7.Skip Table & Self-Organizing Table, Competitive Analysis` <br>
+[算法导论（七）——跳跃表&自组织表，竞争性分析](http://blog.csdn.net/u010385790/article/details/78461263"悬停显示")<br>  
+Skip Table:[代码]()<br>
+
