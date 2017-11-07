@@ -1,53 +1,53 @@
-//#include <iostream>
-//#include "RBT.h"
-//
-//using namespace std;
-//void main() {
-//	int a[] = {10,40,30,60,90,70,20,50,80};
-//	int check_insert = 0;
-//	int check_remove = 0;
-//	int i;
-//	int ilen = (sizeof(a)) / (sizeof(a[0]));
-//	RBTTree<int>* tree=new RBTTree<int>();
-//	cout << "Ô­Ê¼Êý¾Ý£º";
-//	for (i = 0;i < ilen;i++) 
-//		cout << a[i] << " ";
-//	cout << endl;
-//
-//		for (i = 0;i < ilen;i++) {
-//			tree->insert(a[i]);
-//			if (check_insert) {
-//				cout << "Ìí¼ÓµÄ½Úµã£º" << a[i] << endl;
-//				cout << "Ê÷µÄÏêÏ¸ÐÅÏ¢£º" << endl;
-//				tree->print();
-//				cout << endl;
-//			}
-//		}
-//		cout << "Ç°Ðò±éÀú£º";
-//		tree->preOrder();
-//		cout << "\nÖÐÐò±éÀú£º";
-//		tree->inOrder();
-//		cout << "\nºóÐò±éÀú£º";
-//		tree->postOrder();
-//		cout << endl;
-//		cout << "×îÐ¡Öµ: " << tree->minimum()<< endl;
-//		cout << "×î´óÖµ: " << tree->maximum() << endl;
-//		cout << "Ê÷µÄÏêÏ¸ÐÅÏ¢: " << endl;
-//		tree->print();
-//   
-//	if (check_remove)
-//	{
-//		       for (i = 0; i<ilen; i++)
-//			        {
-//			           tree->remove(a[i]);
-//                       cout << "== É¾³ý½Úµã: " << a[i] << endl;
-//			           cout << "== Ê÷µÄÏêÏ¸ÐÅÏ¢: " << endl;
-//			           tree->print();
-//			           cout << endl;
-//			    }
-//		    }
-//	
-//	    tree->destroy();
-//	
-//}
-//
+#include <iostream>
+#include "RBT.h"
+
+using namespace std;
+void main() {
+	int a[] = {10,40,30,60,90,70,20,50,80};
+	int check_insert = 0;
+	int check_remove = 0;
+	int i;
+	int ilen = (sizeof(a)) / (sizeof(a[0]));
+	RBTTree<int>* tree=new RBTTree<int>();
+	cout << "åŽŸå§‹æ•°æ®ï¼š";
+	for (i = 0;i < ilen;i++) 
+		cout << a[i] << " ";
+	cout << endl;
+
+		for (i = 0;i < ilen;i++) {
+			tree->insert(a[i]);
+			if (check_insert) {
+				cout << "æ·»åŠ çš„èŠ‚ç‚¹ï¼š" << a[i] << endl;
+				cout << "æ ‘çš„è¯¦ç»†ä¿¡æ¯ï¼š" << endl;
+				tree->print();
+				cout << endl;
+			}
+		}
+		cout << "å‰åºéåŽ†ï¼š";
+		tree->preOrder();
+		cout << "\nä¸­åºéåŽ†ï¼š";
+		tree->inOrder();
+		cout << "\nåŽåºéåŽ†ï¼š";
+		tree->postOrder();
+		cout << endl;
+		cout << "æœ€å°å€¼: " << tree->minimum()<< endl;
+		cout << "æœ€å¤§å€¼: " << tree->maximum() << endl;
+		cout << "æ ‘çš„è¯¦ç»†ä¿¡æ¯: " << endl;
+		tree->print();
+   
+	if (check_remove)
+	{
+		       for (i = 0; i<ilen; i++)
+			        {
+			           tree->remove(a[i]);
+                       cout << "== åˆ é™¤èŠ‚ç‚¹: " << a[i] << endl;
+			           cout << "== æ ‘çš„è¯¦ç»†ä¿¡æ¯: " << endl;
+			           tree->print();
+			           cout << endl;
+			    }
+		    }
+	
+	    tree->destroy();
+	
+}
+
