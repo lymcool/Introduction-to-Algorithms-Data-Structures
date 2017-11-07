@@ -78,8 +78,8 @@ void SkipList::insert(int val) {
 			newhead->down = head;
 /			head->up = newhead;
 //			head = newhead;
-//		}
-/		curhead = curhead->up;// 当前链表头上移一层
+		}
+		curhead = curhead->up;// 当前链表头上移一层
 //		cursor = curhead;
 //		skiplistNode* skipNode = nullptr;
 //		while (cursor->right) {
@@ -105,8 +105,8 @@ void SkipList::insert(int val) {
 //
 //bool SkipList::search(int val) {
 //	skiplistNode* cursor = nullptr;
-//	if (!head)
-//		return false;
+	if (!head)
+		return false;
 //	cursor = head;
 //	while (cursor->down) {
 //		while (cursor->right) {
@@ -116,7 +116,7 @@ void SkipList::insert(int val) {
 //		}
 //		cursor = cursor->down;
 //	}
-//	while (cursor->right) {// L1层循环开始具体查询
+	while (cursor->right) {// L1层循环开始具体查询
 //		if (val > cursor->right->value)
 //			cursor = cursor->right;
 //		else if (val == cursor->right->value)
@@ -131,66 +131,65 @@ void SkipList::insert(int val) {
 //	skiplistNode* cursor = head;
 //	skiplistNode* prehead = nullptr;
 //	while (true) {
-//		skiplistNode* curhead = cursor;
-//		if (prehead) {
-//			curhead->up= nullptr;
-//			prehead->down = nullptr;// 解除上下级的指针
-//			delete prehead;
-//			prehead = nullptr;// 指针归0//			lvl_num--;
-//			head = curhead;// 重新指定起始指针
-//		}
-//		while (cursor&&cursor->right) {// 在当前行中查询val
-//			if (val == cursor->right->value) {
-//				skiplistNode* delptr = cursor->right;
-//				cursor->right = cursor->right->right;
-//				delete delptr;
-//			}
-//			cursor = cursor->right;		
-//		}
-//		if (curhead->right == nullptr)// 判断当前行是否还存在其它元素，如果不存在则删除该行并将整个跳跃表降维
-//			prehead = curhead;
-//		if (curhead->down == nullptr)
-//			break;
-//		else
-//			cursor = curhead->down;
-//	}
-//}
-//
-//void SkipList::show() {
-//	skiplistNode* curhead = head;
-//	skiplistNode* cursor = nullptr;
-//	while (curhead->down) {
-//		cursor = curhead;
-//		cursor = cursor->right;
-//		while(cursor->right){
-//		cout << cursor->right->value<<" ";
-//		cursor = cursor->right;
-//		}
-//		curhead = curhead->down;
-//		cout << endl;
-//	}
-//	cursor = curhead;
-//	cursor = cursor->right;
-//	do 
-//	{
-//		cout << cursor->value << " ";
-//		cursor = cursor->right;
-//	} while (cursor->right);
-//	cout << cursor->value << endl;
-//}
-//
-//
-//void main() {
-//	int testArray[] = {1,2,3,4,5,6,7,8,9,22};
-//	SkipList* s1 = new SkipList();
-//	for (auto a : testArray) {
-//		s1->insert(a);
-//	}
-//	s1->show();
-//	s1->insert(16);
-//	s1->show();
-//	s1->remove(16);
-//	s1->show();
-//
-//	system("pause");
-//}
+		skiplistNode* curhead = cursor;
+		if (prehead) {
+			curhead->up= nullptr;
+			prehead->down = nullptr;// 解除上下级的指针
+			delete prehead;
+			prehead = nullptr;// 指针归0//			lvl_num--;
+			head = curhead;// 重新指定起始指针
+		}
+		while (cursor&&cursor->right) {// 在当前行中查询val
+			if (val == cursor->right->value) {
+				skiplistNode* delptr = cursor->right;//				cursor->right = cursor->right->right;
+				delete delptr;
+			}
+			cursor = cursor->right;		
+		}
+		if (curhead->right == nullptr)// 判断当前行是否还存在其它元素，如果不存在则删除该行并将整个跳跃表降维
+			prehead = curhead;
+		if (curhead->down == nullptr)
+			break;
+		else
+			cursor = curhead->down;
+	}
+}
+
+void SkipList::show() {
+	skiplistNode* curhead = head;
+	skiplistNode* cursor = nullptr;
+	while (curhead->down) {
+		cursor = curhead;
+		cursor = cursor->right;
+		while(cursor->right){
+		cout << cursor->right->value<<" ";
+		cursor = cursor->right;
+		}
+		curhead = curhead->down;
+		cout << endl;
+	}
+	cursor = curhead;
+	cursor = cursor->right;
+	do 
+	{
+		cout << cursor->value << " ";
+		cursor = cursor->right;
+	} while (cursor->right);
+	cout << cursor->value << endl;
+}
+
+
+void main() {
+	int testArray[] = {1,2,3,4,5,6,7,8,9,22};
+	SkipList* s1 = new SkipList();
+	for (auto a : testArray) {
+		s1->insert(a);
+	}
+	s1->show();
+	s1->insert(16);
+	s1->show();
+	s1->remove(16);
+	s1->show();
+
+	system("pause");
+}
