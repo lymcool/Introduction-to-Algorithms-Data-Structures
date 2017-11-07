@@ -11,9 +11,7 @@
 ////http://www.cnblogs.com/learnhow/p/6749648.html
 
 #include <iostream>
-#include <cstdlib>//随机种子
-#include <ctime>
-
+#include <cstdlib>//随机种子#include <ctime>
 using namespace std;
 
 class SkipList {
@@ -23,8 +21,7 @@ class SkipList {
 		struct skiplistNode* up;
 		struct skiplistNode* down;
 		struct skiplistNode* left;
-		struct skiplistNode* right;
-	};
+		struct skiplistNode* right;	};
 	skiplistNode* head;// 头节点，查询起始点
 	int lvl_num;// 当前链表层数
 	bool randomVal();//随机判断
@@ -49,7 +46,7 @@ bool SkipList::randomVal() {
 	if (ret == 0)
 		return true;
 	else
-/		return false;
+		return false;
 /}
 /
 
@@ -141,8 +138,7 @@ bool SkipList::randomVal() {
 //			curhead->up= nullptr;
 //			prehead->down = nullptr;// 解除上下级的指针
 //			delete prehead;
-//			prehead = nullptr;// 指针归0
-//			lvl_num--;
+//			prehead = nullptr;// 指针归0//			lvl_num--;
 //			head = curhead;// 重新指定起始指针
 //		}
 //		while (cursor&&cursor->right) {// 在当前行中查询val
