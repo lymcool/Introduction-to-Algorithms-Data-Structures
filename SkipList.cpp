@@ -9,7 +9,6 @@
 //(6) 每一层链表横向为单向连接，纵向为双向连接。
 //*/
 ////http://www.cnblogs.com/learnhow/p/6749648.html
-
 #include <iostream>
 #include <cstdlib>//随机种子#include <ctime>
 using namespace std;
@@ -20,8 +19,7 @@ class SkipList {
 		int value;
 		struct skiplistNode* up;
 		struct skiplistNode* down;
-		struct skiplistNode* left;
-		struct skiplistNode* right;	};
+		struct skiplistNode* left;		struct skiplistNode* right;	};
 	skiplistNode* head;// 头节点，查询起始点
 	int lvl_num;// 当前链表层数
 	bool randomVal();//随机判断
@@ -47,41 +45,41 @@ bool SkipList::randomVal() {
 		return true;
 	else
 		return false;
-/}
-/
+}
 
-//void SkipList::insert(int val) {
+
+void SkipList::insert(int val) {
 	//现在L1层插入，再到别的层插入
-//	/* 首先查找L1层 */
-//	skiplistNode* cursor = head;
-//	skiplistNode* newNode = nullptr;
-//	while (cursor->down)
-//		cursor=cursor->down;//往下
-//	skiplistNode* curhead = cursor;// 当前层链表头
-//	while(cursor->right){
-//		if (val < cursor->right->value && !newNode) {	
-//			newNode = new skiplistNode(val);
-//			newNode->right = cursor->right;
-//			cursor->right = newNode;
-//		}
-//		cursor = cursor->right;
-//  }
-//	if (!newNode) {//最尾部
-//		newNode = new skiplistNode(val);
-//		cursor->right = newNode;
-//	}
-//	/* 上层操作 */
-//	int cur_lvl = 1;// 当前所在层
-//	while (randomVal()) {
-//		cur_lvl++;
-//		if (lvl_num < cur_lvl) {// 增加一层
-//			lvl_num++;
-//			skiplistNode* newhead = new skiplistNode();
-//			newhead->down = head;
-//			head->up = newhead;
+	/* 首先查找L1层 */
+	skiplistNode* cursor = head;
+	skiplistNode* newNode = nullptr;
+	while (cursor->down)
+		cursor=cursor->down;//往下
+	skiplistNode* curhead = cursor;// 当前层链表头
+	while(cursor->right){
+		if (val < cursor->right->value && !newNode) {	
+			newNode = new skiplistNode(val);
+			newNode->right = cursor->right;
+			cursor->right = newNode;
+		}
+		cursor = cursor->right;
+  }
+	if (!newNode) {//最尾部
+		newNode = new skiplistNode(val);
+		cursor->right = newNode;
+	}
+	/* 上层操作 */
+	int cur_lvl = 1;// 当前所在层
+	while (randomVal()) {
+		cur_lvl++;
+		if (lvl_num < cur_lvl) {// 增加一层
+			lvl_num++;
+			skiplistNode* newhead = new skiplistNode();
+			newhead->down = head;
+/			head->up = newhead;
 //			head = newhead;
 //		}
-//		curhead = curhead->up;// 当前链表头上移一层
+/		curhead = curhead->up;// 当前链表头上移一层
 //		cursor = curhead;
 //		skiplistNode* skipNode = nullptr;
 //		while (cursor->right) {
