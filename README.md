@@ -24,7 +24,7 @@ Balanced binary tree:  [AVL.h](https://github.com/lymcool/Introduction-to-Algori
 Red black tree:  [RBT.h](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/RBT.h) [RBT.cpp](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/RBT.cpp)<br>
 
 `6.Extended data structure` <br>
-[算法导论（六）——扩充的数据结构的应用](http://blog.csdn.net/u010385790/article/details/78442035) 
+[算法导论（六）——扩充的数据结构的应用](http://blog.csdn.net/u010385790/article/details/78442035)<br> 
 Dynamic orderly statistics:  [OST.h](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/OST.h)  [OST.cpp](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/OST.cpp)<br>
 Interval tree:  [IntervalTree.h](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/IntervalTree.h) 
 [IntervalTree.cpp](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/IntervalTree.cpp)<br>
