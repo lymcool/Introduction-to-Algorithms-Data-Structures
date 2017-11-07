@@ -12,3 +12,11 @@ InsertSort（direct,binary,shell,mergeSort,selectionSort,HeapSort,quickSort,<br>
 `4.Divide and conquer` <br>
 [算法导论（四）——哈希表&平摊分析](http://blog.csdn.net/u010385790/article/details/78313900"悬停显示")<br>  
 [代码]()<br> 
+`5.Tree` <br>
+[算法导论（五）——树](http://blog.csdn.net/u010385790/article/details/78441456"悬停显示")<br>  
+Balanced binary tree:[代码]()<br>
+Red black tree:[代码]()<br>
+`6.Extended data structure` <br>
+[算法导论（六）——扩充的数据结构的应用](http://blog.csdn.net/u010385790/article/details/78442035"悬停显示")<br>  
+Dynamic orderly statistics:[代码]()<br>
+Interval tree:[代码]()<br>
