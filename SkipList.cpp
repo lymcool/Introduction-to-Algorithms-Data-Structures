@@ -99,36 +99,36 @@ void SkipList::insert(int val) {
 		newNode->up=skipNode;
 
 	}
-//}
-//
-//bool SkipList::search(int val) {
-//	skiplistNode* cursor = nullptr;
+}
+
+bool SkipList::search(int val) {
+	skiplistNode* cursor = nullptr;
 	if (!head)
 		return false;
-//	cursor = head;
-//	while (cursor->down) {
-//		while (cursor->right) {
-//			if (val <= cursor->right->value)// 定位元素
-//				break;
-//			cursor = cursor->right;
-//		}
-//		cursor = cursor->down;
-//	}
+	cursor = head;
+	while (cursor->down) {
+		while (cursor->right) {
+			if (val <= cursor->right->value)// 定位元素
+				break;
+			cursor = cursor->right;
+		}
+		cursor = cursor->down;
+	}
 	while (cursor->right) {// L1层循环开始具体查询
-//		if (val > cursor->right->value)
-//			cursor = cursor->right;
-//		else if (val == cursor->right->value)
-//			return true;
-//		else //if(val < cursor->right->value)
-//			return false;
-//	}
-//	return false;
-/}
-//
-//void SkipList::remove(int val) {
-//	skiplistNode* cursor = head;
-//	skiplistNode* prehead = nullptr;
-/	while (true) {
+		if (val > cursor->right->value)
+			cursor = cursor->right;
+		else if (val == cursor->right->value)
+			return true;
+		else //if(val < cursor->right->value)
+			return false;
+	}
+	return false;
+}
+
+void SkipList::remove(int val) {
+	skiplistNode* cursor = head;
+	skiplistNode* prehead = nullptr;
+	while (true) {
 		skiplistNode* curhead = cursor;
 		if (prehead) {
 			curhead->up= nullptr;
