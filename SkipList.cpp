@@ -60,8 +60,7 @@ void SkipList::insert(int val) {
 		if (val < cursor->right->value && !newNode) {	
 			newNode = new skiplistNode(val);
 			newNode->right = cursor->right;
-			cursor->right = newNode;
-		}
+			cursor->right = newNode;		}
 		cursor = cursor->right;
   }
 	if (!newNode) {//最尾部
@@ -73,34 +72,33 @@ void SkipList::insert(int val) {
 	while (randomVal()) {
 		cur_lvl++;
 		if (lvl_num < cur_lvl) {// 增加一层
-			lvl_num++;
-			skiplistNode* newhead = new skiplistNode();
+			lvl_num++;			skiplistNode* newhead = new skiplistNode();
 			newhead->down = head;
-/			head->up = newhead;
-//			head = newhead;
+			head->up = newhead;
+			head = newhead;
 		}
 		curhead = curhead->up;// 当前链表头上移一层
-//		cursor = curhead;
-//		skiplistNode* skipNode = nullptr;
-//		while (cursor->right) {
-//			if (val < cursor->right->value&&!skipNode) {
-//				skipNode = new skiplistNode(val);
-//				skipNode->right = cursor->right;
-//			}
-//			cursor = cursor->right;
-//		}
-//		if (!skipNode) {
-//			skipNode = new skiplistNode(val);
-//			cursor->right = skipNode;
-//		}//
-//		while (newNode->up) {
-//			newNode = newNode->up;
-//		}
-//		/* 连接上newNode下skipNode两个节点 */
-//		skipNode->down = newNode;
-//		newNode->up=skipNode;
-//
-//	}
+		cursor = curhead;
+		skiplistNode* skipNode = nullptr;
+		while (cursor->right) {
+			if (val < cursor->right->value&&!skipNode) {
+				skipNode = new skiplistNode(val);
+				skipNode->right = cursor->right;
+			}
+			cursor = cursor->right;
+		}
+		if (!skipNode) {
+			skipNode = new skiplistNode(val);
+			cursor->right = skipNode;
+		}//
+		while (newNode->up) {
+			newNode = newNode->up;
+		}
+		/* 连接上newNode下skipNode两个节点 */
+		skipNode->down = newNode;
+		newNode->up=skipNode;
+
+	}
 //}
 //
 //bool SkipList::search(int val) {
@@ -125,12 +123,12 @@ void SkipList::insert(int val) {
 //			return false;
 //	}
 //	return false;
-//}
+/}
 //
 //void SkipList::remove(int val) {
 //	skiplistNode* cursor = head;
 //	skiplistNode* prehead = nullptr;
-//	while (true) {
+/	while (true) {
 		skiplistNode* curhead = cursor;
 		if (prehead) {
 			curhead->up= nullptr;
