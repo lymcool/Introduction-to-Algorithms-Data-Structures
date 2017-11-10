@@ -1,4 +1,6 @@
-//https://github.com/xuyicpp/Classical_Algorithms/blob/master/Introduction_to_Algorithms
+
+////https://github.com/xuyicpp/Classical_Algorithms/blob/master/Introduction_to_Algorithms
+//http://www.cnblogs.com/zhoutaotao/p/4067749.html
 
 
 #include <iostream>
@@ -40,35 +42,35 @@ void main() {
 	for (i = 0;i < n;i++) {
 		j = h.InsertHash(e[i]);
 		if (j == DUPLICATE) {
-			cout << "¹þÏ£±íÖÐÒÑÓÐ¹Ø¼ü×ÖÎª" << e[i].key << "µÄÊý¾Ý£¬ÎÞ·¨ÔÙ²åÈëÊý¾Ý";
+			cout << "å“ˆå¸Œè¡¨ä¸­å·²æœ‰å…³é”®å­—ä¸º" << e[i].key << "çš„æ•°æ®ï¼Œæ— æ³•å†æ’å…¥æ•°æ®";
 			visit(e[i]);
 			cout << endl;
 
 		}
-		if (j == UNSUCCESS)//²åÈë²»³É¹¦£¬ÖØ½¨¹þÏ£±í
+		if (j == UNSUCCESS)//æ’å…¥ä¸æˆåŠŸï¼Œé‡å»ºå“ˆå¸Œè¡¨
 			j = h.InsertHash(e[i]);
 	}
-	cout << "°´¹þÏ£µØÖ·µÄË³Ðò±éÀú¹þÏ£±í£º" << endl;
+	cout << "æŒ‰å“ˆå¸Œåœ°å€çš„é¡ºåºéåŽ†å“ˆå¸Œè¡¨ï¼š" << endl;
 	h.traverseHash(visit);
 
 
- //É¾³ýÊý¾Ý²âÊÔ 
+ //åˆ é™¤æ•°æ®æµ‹è¯• 
 	HD temp;
-	cout<< "ÇëÊäÈë´ýÉ¾³ýÊý¾ÝµÄ¹Ø¼ü×Ö£º 13" << endl;
+	cout<< "è¯·è¾“å…¥å¾…åˆ é™¤æ•°æ®çš„å…³é”®å­—ï¼š 13" << endl;
 	k = 13;
 	m = h.deleteHash(k,temp);
 	if (m) {
-		cout << "³É¹¦É¾³ýÊý¾Ý";
+		cout << "æˆåŠŸåˆ é™¤æ•°æ®";
 		visit(temp);
 		cout << endl;
 	}
 	else
-		cout << "²»´æÔÚ¹Ø¼ü×Ö£¬ÎÞ·¨É¾³ý£¡" << endl;
-	cout << "°´¹þÏ£µØÖ·µÄË³Ðò±éÀú¹þÏ£±í£º" << endl;
+		cout << "ä¸å­˜åœ¨å…³é”®å­—ï¼Œæ— æ³•åˆ é™¤ï¼" << endl;
+	cout << "æŒ‰å“ˆå¸Œåœ°å€çš„é¡ºåºéåŽ†å“ˆå¸Œè¡¨ï¼š" << endl;
 	h.traverseHash(visit);
 	
-	//²éÑ¯Êý¾Ý²âÊÔ 
-	cout << "ÇëÊäÈë´ý²éÕÒÊý¾ÝµÄ¹Ø¼ü×Ö£º4" << endl;
+	//æŸ¥è¯¢æ•°æ®æµ‹è¯• 
+	cout << "è¯·è¾“å…¥å¾…æŸ¥æ‰¾æ•°æ®çš„å…³é”®å­—ï¼š4" << endl;
 	k = 4;
 	n = 0;
 	j = h.searchHash(k,p,n);
@@ -77,23 +79,23 @@ void main() {
 			cout << endl;
 	}
 	else
-		cout << "Î´ÕÒµ½" << endl;
+		cout << "æœªæ‰¾åˆ°" << endl;
 
-	//²åÈëÊý¾Ý²âÊÔ 
-	cout << "²åÈëÊý¾Ý£¬ÇëÊäÈë´ý²åÈëÊý¾ÝµÄ¹Ø¼ü×Ö£º16" << endl;
+	//æ’å…¥æ•°æ®æµ‹è¯• 
+	cout << "æ’å…¥æ•°æ®ï¼Œè¯·è¾“å…¥å¾…æ’å…¥æ•°æ®çš„å…³é”®å­—ï¼š16" << endl;
 	temp.key = 16;
-	cout << "ÇëÊäÈë´ý²åÈëÊý¾ÝµÄorder£º15" << endl;
+	cout << "è¯·è¾“å…¥å¾…æ’å…¥æ•°æ®çš„orderï¼š15" << endl;
 	temp.order = 15;
 	j = h.InsertHash(temp);
 	if (j == DUPLICATE) {
-		cout << "¹þÏ£±íÖÐÒÑÓÐ¹Ø¼ü×ÖÎª" << temp.key << "µÄÊý¾Ý£¬ÎÞ·¨ÔÙ²åÈëÊý¾Ý";
+		cout << "å“ˆå¸Œè¡¨ä¸­å·²æœ‰å…³é”®å­—ä¸º" << temp.key << "çš„æ•°æ®ï¼Œæ— æ³•å†æ’å…¥æ•°æ®";
 		visit(temp);
 		cout << endl;
 
 	}
 	if (j == UNSUCCESS)
 		j = h.InsertHash(temp);
-	cout << "°´¹þÏ£µØÖ·µÄË³Ðò±éÀú¹þÏ£±í£º" << endl;
+	cout << "æŒ‰å“ˆå¸Œåœ°å€çš„é¡ºåºéåŽ†å“ˆå¸Œè¡¨ï¼š" << endl;
 	h.traverseHash(visit);
 
 	system("pause");
