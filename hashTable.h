@@ -1,36 +1,38 @@
+
 #pragma once
 //https://github.com/xuyicpp/Classical_Algorithms/blob/master/Introduction_to_Algorithms
+//http://www.cnblogs.com/zhoutaotao/p/4067749.html
 
 #ifndef  _HASHTABLE_H_
 #define _HASHTABLE_H_
 
 
-const int EMPTY = 0;	//ÉèÖÃ0ÎªÎŞÊı¾İ±êÖ¾(´ËÊ±¹Ø¼ü×Ö²»¿ÉÎª0) 
-const int TOMB = -1;	//ÉèÖÃ-1ÎªÉ¾³ıÊı¾İ±êÖ¾(´ËÊ±¹Ø¼ü×Ö²»¿ÉÎª-1) 
+const int EMPTY = 0;	//è®¾ç½®0ä¸ºæ— æ•°æ®æ ‡å¿—(æ­¤æ—¶å…³é”®å­—ä¸å¯ä¸º0) 
+const int TOMB = -1;	//è®¾ç½®-1ä¸ºåˆ é™¤æ•°æ®æ ‡å¿—(æ­¤æ—¶å…³é”®å­—ä¸å¯ä¸º-1) 
 
 const int SUCCESS = 1;
 const int UNSUCCESS = 0;
-const int DUPLICATE = -1;	//	¹Ø½Ú×Ö³åÍ»(ÖØ¸´)£¬²»ÄÜÔÙ²åÈë 
-const int N = 4;		//hashsize[] µÄÈİÁ¿ 
+const int DUPLICATE = -1;	//	å…³èŠ‚å­—å†²çª(é‡å¤)ï¼Œä¸èƒ½å†æ’å…¥ 
+const int N = 4;		//hashsize[] çš„å®¹é‡ 
 int hashsize[N] = { 11, 19, 37, 73 };
 
 
 template<typename D>
 class hashTable {
-	D *elem;//Êı¾İÔªËØ´æ´¢»ùÖ·£¬¶¯Ì¬·ÖÅäÊı×é
-	int count, length;//Êı¾İÔªËØ¸öÊı£¬¹şÏ£±íÈİÁ¿
+	D *elem;//æ•°æ®å…ƒç´ å­˜å‚¨åŸºå€ï¼ŒåŠ¨æ€åˆ†é…æ•°ç»„
+	int count, length;//æ•°æ®å…ƒç´ ä¸ªæ•°ï¼Œå“ˆå¸Œè¡¨å®¹é‡
 	int
-		sizeindex;//hashsize[sizeindex]Îªµ±Ç°ÈİÁ¿
-	int *rando;//Ëæ»úÊıÊı×éÖ¸Õë
+		sizeindex;//hashsize[sizeindex]ä¸ºå½“å‰å®¹é‡
+	int *rando;//éšæœºæ•°æ•°ç»„æŒ‡é’ˆ
 
 	int Hash(keytype key) {
-		return key%length;//Ò»¸ö¼òµ¥¹şÏ£º¯Êı
+		return key%length;//ä¸€ä¸ªç®€å•å“ˆå¸Œå‡½æ•°
 	}
 	int Hash2(keytype key) {
-		return key % (length-2);//Ë«ÖØÉ¢ÁĞÌ½²é·¨µÄµÚ¶ş¸ö¹şÏ£º¯Êı???
+		return key % (length-2);//åŒé‡æ•£åˆ—æ¢æŸ¥æ³•çš„ç¬¬äºŒä¸ªå“ˆå¸Œå‡½æ•°???
 	}
 
-	void Random() {//Õ¹Ê¾Ëæ»úÌ½²é·¨	
+	void Random() {//å±•ç¤ºéšæœºæ¢æŸ¥æ³•	
 		bool *ra = new bool[length];
 		rando = new int[length];
 		int i;
@@ -40,7 +42,7 @@ class hashTable {
 		for (i = 1;i < length;i++) {
 			do {
 				rando[i] = rand() % (length - 1) + 1;
-				if (!ra[rando[i]])//Î´ÌôÖĞ´ËÊı
+				if (!ra[rando[i]])//æœªæŒ‘ä¸­æ­¤æ•°
 					ra[rando[i]] = true;
 				else
 					rando[i] = 0;
@@ -50,40 +52,40 @@ class hashTable {
 		delete[] ra;
 	}
 
-	//ÔöÁ¿ĞòÁĞº¯Êı,³ö´í·µ»Ø0
+	//å¢é‡åºåˆ—å‡½æ•°,å‡ºé”™è¿”å›0
 	int increment(int i, keytype key) {
 		switch(type){
 		case 0:
-			return i; 	//ÏßĞÔÌ½²é·¨
+			return i; 	//çº¿æ€§æ¢æŸ¥æ³•
 		case 1:
-			return  ((i + 1) / 2)*((i + 1) / 2)*(int)pow(-1, i - 1);//¶ş´ÎÌ½²é·¨(1, -1, 4, -4, 9, -9,...)
+			return  ((i + 1) / 2)*((i + 1) / 2)*(int)pow(-1, i - 1);//äºŒæ¬¡æ¢æŸ¥æ³•(1, -1, 4, -4, 9, -9,...)
 		case 2:
-			return i*Hash2(key);//Ë«ÖØÉ¢ÁĞÌ½²é·¨
+			return i*Hash2(key);//åŒé‡æ•£åˆ—æ¢æŸ¥æ³•
 		case 3:
-			return rando[i];//Ëæ»úÌ½²é·¨(ÓÉRandom()½¨Á¢µÄÒ»¸öÎ±Ëæ»úÊıÁĞ)
+			return rando[i];//éšæœºæ¢æŸ¥æ³•(ç”±Random()å»ºç«‹çš„ä¸€ä¸ªä¼ªéšæœºæ•°åˆ—)
 		default:
-				return i;//Ä¬ÈÏÏßĞÔÌ½²é·¨
+				return i;//é»˜è®¤çº¿æ€§æ¢æŸ¥æ³•
            }
 		return 0;
 	}
 
-	//¿ª·ÅÑ°Ö··¨ÇóµÃ¹Ø¼ü×ÖÎªKeyµÄµÚi´Î³åÍ»µÄµØÖ·P
+	//å¼€æ”¾å¯»å€æ³•æ±‚å¾—å…³é”®å­—ä¸ºKeyçš„ç¬¬iæ¬¡å†²çªçš„åœ°å€P
 	void collision(int i, keytype key,int &p) {
-		p = (Hash(key)+increment(i,key)) % length;//¹şÏ£º¯Êı¼ÓÔöÁ¿ºóÔÙÇóÓà
+		p = (Hash(key)+increment(i,key)) % length;//å“ˆå¸Œå‡½æ•°åŠ å¢é‡åå†æ±‚ä½™
 		if (p < 0)
 			p += length;
 	}
 
-	//ÖØ½¨¹şÏ£±í
+	//é‡å»ºå“ˆå¸Œè¡¨
 	void ReCreateHashTable(){
 		int i;
 		int len = length;
-		D *p=elem;//pÖ¸Ïò¹şÏ£±íÔ­ÓĞÊı¾İ¿Õ¼ä
+		D *p=elem;//pæŒ‡å‘å“ˆå¸Œè¡¨åŸæœ‰æ•°æ®ç©ºé—´
 		++sizeindex;
 		if (sizeindex < N) {
 			length = hashsize[sizeindex];
 			elem = new D[length];
-			assert(elem != NULL);////¼ÆËã±í´ïÊ½n ,Èç¹ûÎª¼Ù(¼´Îª0), ÏÈÏòstderr´òÓ¡Ò»Ìõ³ö´íĞÅÏ¢,È»ºóÍ¨¹ıµ÷ÓÃ abort À´ÖÕÖ¹³ÌĞòÔËĞĞ¡£ 
+			assert(elem != NULL);////è®¡ç®—è¡¨è¾¾å¼n ,å¦‚æœä¸ºå‡(å³ä¸º0), å…ˆå‘stderræ‰“å°ä¸€æ¡å‡ºé”™ä¿¡æ¯,ç„¶åé€šè¿‡è°ƒç”¨ abort æ¥ç»ˆæ­¢ç¨‹åºè¿è¡Œã€‚ 
 			for (i = 0;i < length;i++)
 				elem[i].key = EMPTY;
 			for (i = 0;i < length;i++) {
@@ -98,7 +100,7 @@ class hashTable {
    }
 
 public:
-	int type;//Ì½²é·¨ÀàĞÍ(0-3)
+	int type;//æ¢æŸ¥æ³•ç±»å‹(0-3)
 	hashTable() {
 		count = 0;
 		sizeindex = 0;
@@ -107,7 +109,7 @@ public:
 		assert(elem != NULL);
 		for (int i = 0;i < length;i++)
 			elem[i].key = EMPTY;
-		cout << "ÇëÊäÈëÌ½²éÀàĞÍ£¨0:ÏßĞÔ;1:¶ş´Î;2:Ë«É¢ÁĞ;3:Ëæ»ú£©£º1" << endl;
+		cout << "è¯·è¾“å…¥æ¢æŸ¥ç±»å‹ï¼ˆ0:çº¿æ€§;1:äºŒæ¬¡;2:åŒæ•£åˆ—;3:éšæœºï¼‰ï¼š1" << endl;
 		type = 1;
 		if (type == 3)
 			Random();
@@ -123,32 +125,32 @@ public:
 			delete[] rando;
 	}
 
-	//ÔÚ¿ª·ÅÑ°Ö·¹şÏ£±íÖĞ²éÕÒ¹Ø¼ü×ÖÎªKeyµÄÔªËØ£¬Èô²éÕÒ³É¹¦£¬ÒÔpÖ¸Ïò´ı²éÊı¾İÔªËØÔÚ±íÖĞÎ»ÖÃ 
-	//²¢·µ»ØSUCCESS£»·ñÔò£¬ÒÔpÖ¸Ê¾²åÈëÎ»ÖÃ£¬²¢·µ»ØUNSUCCESS 
-	//cÓÃÒÔ¼Æ³åÍ»´ÎÊı£¬Æä³õÖµÖÃÁã£¬¹©½¨±í²åÈëÊ±²Î¿¼ 
+	//åœ¨å¼€æ”¾å¯»å€å“ˆå¸Œè¡¨ä¸­æŸ¥æ‰¾å…³é”®å­—ä¸ºKeyçš„å…ƒç´ ï¼Œè‹¥æŸ¥æ‰¾æˆåŠŸï¼Œä»¥pæŒ‡å‘å¾…æŸ¥æ•°æ®å…ƒç´ åœ¨è¡¨ä¸­ä½ç½® 
+	//å¹¶è¿”å›SUCCESSï¼›å¦åˆ™ï¼Œä»¥pæŒ‡ç¤ºæ’å…¥ä½ç½®ï¼Œå¹¶è¿”å›UNSUCCESS 
+	//cç”¨ä»¥è®¡å†²çªæ¬¡æ•°ï¼Œå…¶åˆå€¼ç½®é›¶ï¼Œä¾›å»ºè¡¨æ’å…¥æ—¶å‚è€ƒ 
 	bool searchHash(int c, keytype key, int &p) {
-		int c1;//³åÍ»´ÎÊı
-		int tomb = -1;//´æÕÒµ½µÄµÚÒ»¸öÄ¹±®µØÖ·£¨±»É¾³ıÊı¾İ£©
-		p = Hash(key);	//¹şÏ£µØÖ·
+		int c1;//å†²çªæ¬¡æ•°
+		int tomb = -1;//å­˜æ‰¾åˆ°çš„ç¬¬ä¸€ä¸ªå¢“ç¢‘åœ°å€ï¼ˆè¢«åˆ é™¤æ•°æ®ï¼‰
+		p = Hash(key);	//å“ˆå¸Œåœ°å€
 
 		while (elem[p].key == TOMB ||elem[p].key!= EMPTY && !EQ(key, elem[p].key))
 		{
-		//Êı¾İÒÑ±»É¾³ı£¬ÇÒÊÇÕÒµ½µÄµÚÒ»¸öÄ¹±®
+		//æ•°æ®å·²è¢«åˆ é™¤ï¼Œä¸”æ˜¯æ‰¾åˆ°çš„ç¬¬ä¸€ä¸ªå¢“ç¢‘
 		if (elem[p].key == TOMB && tomb == -1) {
 			tomb = p;
 			c1 = c;
 		}
 		c++;
-		//ÔÚ³åÍ»´ÎÊıãĞÖµÄÚ£¬ÇóÏÂÒ»¸öÌ½²éµØÖ·p
+		//åœ¨å†²çªæ¬¡æ•°é˜ˆå€¼å†…ï¼Œæ±‚ä¸‹ä¸€ä¸ªæ¢æŸ¥åœ°å€p
 		if (c <= hashsize[sizeindex] / 2)
 			collision(key, p, c);
 		else
 			break;
 		}
-		//²éÕÒ³É¹¦
+		//æŸ¥æ‰¾æˆåŠŸ
 		if EQ(key, elem[p].key)
 			return true;
-		else {//²éÕÒ¹ı³ÌÖĞÓöµ½¹ıÄ¹±®
+		else {//æŸ¥æ‰¾è¿‡ç¨‹ä¸­é‡åˆ°è¿‡å¢“ç¢‘
 			if (tomb == -1) {
 				p = tomb;
 				c = c1;
@@ -157,8 +159,8 @@ public:
 		}
 	}
 
-	//²éÕÒ²»³É¹¦Ê±½«Êı¾İÔªËØe²åÈëµ½¿ª·ÅÑ°Ö·¹şÏ£±íÖĞ£¬²¢·µ»ØSUCCESS£»²éÕÒ³É¹¦Ê±·µ»Ø 
-	//DUPLICATE£¬²»²åÈëÊı¾İÔªËØ£»Èô³åÍ»´ÎÊı¹ı´ó£¬Ôò²»²åÈë£¬²¢ÖØ½¨¹şÏ£±í£¬·µ»ØUNSUCCESS 
+	//æŸ¥æ‰¾ä¸æˆåŠŸæ—¶å°†æ•°æ®å…ƒç´ eæ’å…¥åˆ°å¼€æ”¾å¯»å€å“ˆå¸Œè¡¨ä¸­ï¼Œå¹¶è¿”å›SUCCESSï¼›æŸ¥æ‰¾æˆåŠŸæ—¶è¿”å› 
+	//DUPLICATEï¼Œä¸æ’å…¥æ•°æ®å…ƒç´ ï¼›è‹¥å†²çªæ¬¡æ•°è¿‡å¤§ï¼Œåˆ™ä¸æ’å…¥ï¼Œå¹¶é‡å»ºå“ˆå¸Œè¡¨ï¼Œè¿”å›UNSUCCESS 
 	int InsertHash(D e) {
 		int p=0;
 		int c = 0;
@@ -169,17 +171,17 @@ public:
 			++count;
 			return SUCCESS;
 		}
-		else//Î´ÕÒµ½£¬µ«³åÍ»´ÎÊıÒÑ´ïµ½ÉÏÏŞ£¬ÖØ½¨¹şÏ£±í
+		else//æœªæ‰¾åˆ°ï¼Œä½†å†²çªæ¬¡æ•°å·²è¾¾åˆ°ä¸Šé™ï¼Œé‡å»ºå“ˆå¸Œè¡¨
 		{
-			cout << "°´¹şÏ£µØÖ·µÄË³Ğò±éÀúÖØ½¨Ç°µÄ¹şÏ£±í£º" << endl;
+			cout << "æŒ‰å“ˆå¸Œåœ°å€çš„é¡ºåºéå†é‡å»ºå‰çš„å“ˆå¸Œè¡¨ï¼š" << endl;
 			traverseHash(visit);
-			cout << "ÖØ½¨¹şÏ£±í" << endl;
+			cout << "é‡å»ºå“ˆå¸Œè¡¨" << endl;
 			ReCreateHashTable();	
 			return UNSUCCESS;
 		}
 	}
 
-	//´Ó¹şÏ£±íÖĞÉ¾³ı¹Ø½Ú×ÖÎªKeyµÄÊı¾İÔªËØ£¬³É¹¦·µ»Øtrue£¬²¢½«¸ÃÎ»ÖÃµÄ¹Ø¼ü×ÖÉèÎªTMOB; ²»³É¹¦·µ»Øfalse 
+	//ä»å“ˆå¸Œè¡¨ä¸­åˆ é™¤å…³èŠ‚å­—ä¸ºKeyçš„æ•°æ®å…ƒç´ ï¼ŒæˆåŠŸè¿”å›trueï¼Œå¹¶å°†è¯¥ä½ç½®çš„å…³é”®å­—è®¾ä¸ºTMOB; ä¸æˆåŠŸè¿”å›false 
 	bool deleteHash(keytype key, D &e) {
 		int p=0;
 		int c = 0;
@@ -193,14 +195,14 @@ public:
 			return false;
 	}
 
-	//·µ»ØÔªËØ[i]µÄÖµ
+	//è¿”å›å…ƒç´ [i]çš„å€¼
 	D getElem(int i)const {
 		return elem[i];
 	}
-	//°´¹şÏ£µØÖ·µÄË³Ğò±éÀú¹şÏ£±íH
+	//æŒ‰å“ˆå¸Œåœ°å€çš„é¡ºåºéå†å“ˆå¸Œè¡¨H
 	void traverseHash(void(*visit)(int, D*))const {
 		int i;
-		cout << "¹şÏ£µØÖ·0~" << length - 1 << endl;
+		cout << "å“ˆå¸Œåœ°å€0~" << length - 1 << endl;
 		for (i = 0; i < length; ++i) {
 			if (elem[i].key != EMPTY&&elem[i].key != TOMB)
 				visit(i,&elem[i]);
