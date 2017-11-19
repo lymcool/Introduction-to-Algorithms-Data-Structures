@@ -1,14 +1,7 @@
  ## Introduction-to-Algorithms-Data-Structures
 （Introduction to Algorithms ，Data Structures）
-
-`1.Asymptotic analysis, recursive solution` <br>
-<<<<<<< HEAD
-[算法导论（一）——渐近分析，递归解法](http://blog.csdn.net/u010385790/article/details/77892274"悬停显示")<br>  
-`2.Sorting algorithm :`<br>
-InsertSort（direct,binary,shell,mergeSort,selectionSort,HeapSort,quickSort,<br>Order statistics(randomized_select,WorseLinearSelect),countSort,bucketSort,RadixSort,bubbleSort<br> 
-[排序代码](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/1_sort.cpp"悬停显示")<br>
-[算法导论（二）——排序算法整理](http://blog.csdn.net/u010385790/article/details/78311022"悬停显示")  <br>  
 =======
+`1.Asymptotic analysis, recursive solution `<br>
 [算法导论（一）——渐近分析，递归解法](http://blog.csdn.net/u010385790/article/details/77892274)<br>  
 `2.Sorting algorithm :`<br>
 InsertSort（direct,binary,shell,mergeSort,selectionSort,HeapSort,quickSort,<br>Order statistics(randomized_select,WorseLinearSelect),countSort,bucketSort,RadixSort,bubbleSort<br> 
@@ -31,5 +24,7 @@ Interval tree:[IntervalTree.h](https://github.com/lymcool/Introduction-to-Algori
 `7.Skip Table & Self-Organizing Table, Competitive Analysis` <br>
 [算法导论（七）——跳跃表&自组织表，竞争性分析](http://blog.csdn.net/u010385790/article/details/78461263)<br>  
 Skip Table:[SkipTable](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/SkipList.cpp)<br>
->>>>>>> parent of 1e115da... Update README.md
+`8.Dynamic planning & Greedy algorithm` <br>
+[算法导论（八）——动态规划&贪婪算法](http://blog.csdn.net/u010385790/article/details/78577644)<br>  
+
 
