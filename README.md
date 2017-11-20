@@ -25,6 +25,11 @@ Interval tree:[IntervalTree.h](https://github.com/lymcool/Introduction-to-Algori
 Skip Table:[SkipTable](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/SkipList.cpp)<br>
 `8.Dynamic planning & Greedy algorithm` <br>
 [算法导论（八）——动态规划&贪婪算法](http://blog.csdn.net/u010385790/article/details/78577644)<br> 
-三角数塔
+[最长公共子序列](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/SkipList.cpp)<br>
+[三角数塔](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/SkipList.cpp)<br>
+[钢条切割](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/SkipList.cpp)<br>
+[矩阵连乘](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/SkipList.cpp)<br>
+[最优二叉搜索树](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/SkipList.cpp)<br>
+
 
 
