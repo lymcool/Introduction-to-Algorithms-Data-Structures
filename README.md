@@ -10,9 +10,9 @@ InsertSort（direct,binary,shell,mergeSort,selectionSort,HeapSort,quickSort,<br>
 [算法导论（三）——分治法](http://blog.csdn.net/u010385790/article/details/78311222)<br>  
 `4.Hash table & amortized analysis` <br>
 [算法导论（四）——哈希表&平摊分析](http://blog.csdn.net/u010385790/article/details/78313900)<br>  
-[HashTable.h](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/hashTable.h)    [HashTable.cpp](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/hashTable.cpp)<br> 
+[HashTable.h](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/hashTable.h)    [HashTable.cpp](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/hashTable.cpp)<br> <br>
 `5.Tree`<br>
-[算法导论（五）——树](http://blog.csdn.net/u010385790/article/details/78441456)<br>  
+[算法导论（五）——树](http://blog.csdn.net/u010385790/article/details/78441456)  
 Balanced binary tree:[BST.h](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/bst.h)       [BST.cpp](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/bst.cpp)<br>
 Red black tree:[RBT.h](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/RBT.h)           [RBT.cpp](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/RBT.cpp)<br>
 `6.Extended data structure` <br>
@@ -25,11 +25,11 @@ Interval tree:[IntervalTree.h](https://github.com/lymcool/Introduction-to-Algori
 Skip Table:[SkipTable](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/SkipList.cpp)<br>
 `8.Dynamic planning & Greedy algorithm` <br>
 [算法导论（八）——动态规划&贪婪算法](http://blog.csdn.net/u010385790/article/details/78577644)<br> 
-[最长公共子序列](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/SkipList.cpp)<br>
-[三角数塔](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/SkipList.cpp)<br>
-[钢条切割](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/SkipList.cpp)<br>
-[矩阵连乘](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/SkipList.cpp)<br>
-[最优二叉搜索树](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/SkipList.cpp)<br>
+[最长公共子序列](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/DP_SLC.cpp)<br>
+[三角数塔](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/DP_Triangle.cpp)<br>
+[钢条切割](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/DP_CutRod.cpp)<br>
+[矩阵连乘](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/DP_MatixMultiply.cpp)<br>
+[最优二叉搜索树](https://github.com/lymcool/Introduction-to-Algorithms-Data-Structures/blob/master/optimal_BST.cpp)<br>
 
 
 
